@@ -1,3 +1,5 @@
+let myLibrary = [];
+
 function Book(title, author, pages, read){
     this.title = title;
     this.author = author;
@@ -5,21 +7,31 @@ function Book(title, author, pages, read){
     this.read = read;
 }
 
-Book.prototype.info = function() {
-        return (title + " by " + author + ", " + pages + " pages, " + read)
-    }
+function addBookToLibrary(book) {
+    myLibrary.push(book);
+}
 
+function toString(book) {
+    return  "Name : "   + book.title + 
+            "\nAuthor: "+ book.author + 
+            "\nPages: " + book.pages + 
+            "\nRead: "  + book.read;
+}
 
-    function Student(){
+function displayBooks() {
+    myLibrary.forEach((book) => {
+        console.log(toString(book));
+    })
+}
+function toggleRead(book) {
+    if (book.read == truw){book.read = false}
+    else book.read = true;
+}
 
-    }
+const Hobit = new Book("Hobit", "Tolkien", 500, true);
+const Potter = new Book("Harry Potter", "J. K. Rowling", 1500, false);
 
-    Student.prototype.sayName = function() {
-        console.log(this.name)
-    }
-
-    function EighthGrader(name){
-        this.name = name;
-        this.year = year;
-    }
-    
+addBookToLibrary(Hobit);
+addBookToLibrary(Potter);
+displayBooks();
+console.log(Hobit)
